@@ -56,10 +56,20 @@ resource "aws_security_group" "developer" {
 
 }
 
-
-
-
-
-
-
-
+resource "aws_iam_policy" "example" {
+  name = "example"
+  policy =<<EOF
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "lambda:UpdateFunctionCode"
+            ],
+            "Resource": "*"
+        }
+    ]
+}
+EOF
+}
