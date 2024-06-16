@@ -1,4 +1,4 @@
-replicaCount: 3
+replicaCount: 5
 
 image:
   repository: us-central1-docker.pkg.dev/terraform-project-382315/artemis/artemis
