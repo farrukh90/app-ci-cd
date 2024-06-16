@@ -28,7 +28,7 @@ serviceAccount:
 podAnnotations: {}
 podLabels: 
   app: dev-artemis
-  monitoring_enabled: "true"
+  monitoring: enabled
 
 podSecurityContext: {}
   # fsGroup: 2000
