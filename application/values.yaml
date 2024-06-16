@@ -26,7 +26,8 @@ serviceAccount:
   name: ""
 
 podAnnotations: {}
-podLabels: {}
+podLabels: 
+  app: dev-artemis
 
 podSecurityContext: {}
   # fsGroup: 2000
