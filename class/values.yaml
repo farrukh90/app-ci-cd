@@ -19,11 +19,11 @@ ingress:
   className: "nginx"
   annotations: {}
   hosts:
-    - host: stage-artemis.projectxconsulting.net
+    - host: class-demo.artemis.projectxconsulting.net
       paths:
         - path: /
           pathType: ImplementationSpecific
   tls: 
-   - secretName: stage-artemis-tls
+   - secretName: class-demo.artemis-tls
      hosts:
-       - stage-artemis.projectxconsulting.net
+       - class-demo.artemis.projectxconsulting.net
