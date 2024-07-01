@@ -1,0 +1,33 @@
+replicaCount: 3
+
+image:
+  repository: us-central1-docker.pkg.dev/terraform-project-382315/artemis/artemis
+  pullPolicy: IfNotPresent
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: "8.0.0"
+
+########################################################################################################################
+###############        Enabling the app to be accessible from browser ################################################## 
+########################################################################################################################
+
+service:
+  type: ClusterIP
+  port: 5000
+
+ingress:
+  enabled: true
+  className: "nginx"
+  annotations: 
+    nginx.ingress.kubernetes.io/proxy-body-size: "0"
+    ingress.kubernetes.io/ssl-redirect: "false"
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+    acme.cert-manager.io/http01-edit-in-place: "true"
+  hosts:
+    - host: external-dns-demo.projectxconsulting.net
+      paths:
+        - path: /
+          pathType: ImplementationSpecific
+  tls: 
+   - secretName: external-dns-demo.artemis-tls
+     hosts:
+       - external-dns-demo.projectxconsulting.net
